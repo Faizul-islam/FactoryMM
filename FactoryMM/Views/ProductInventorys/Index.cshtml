@@ -1,0 +1,38 @@
+﻿@model IEnumerable<ProductInventory>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<div>
+    <a asp-controller="ProductInventorys" asp-action="Create" type="button" class="btn btn-primary btn-lg btn-block m-2" style="width:300px;">Create New ProductInventory </a>
+
+    <table class="table table-striped table-dark">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Product Inventory Name</th>
+                <th scope="col">Description</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Unit Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var prodInv in Model)
+            {
+                <tr>
+                    <th scope="row">@prodInv.ProdInvId</th>
+                    <td>@prodInv.ProdInvName</td>
+                    <td>@prodInv.Description</td>
+                    <td>@prodInv.Quantity</td>
+                    <td>@prodInv.UnitPrice</td>
+                    <td><a asp-controller="ProductInventorys" asp-action="Edit" asp-route-id="@prodInv.ProdInvId">Edit</a></td>
+                    <td>Delete</td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>

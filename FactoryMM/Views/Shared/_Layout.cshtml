@@ -1,0 +1,214 @@
+﻿
+@inject SignInManager<ApplicationUser> signInManager;
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <environment include="Development">
+        <link href="~/lib/bootstrap/css/bootstrap.css" rel="stylesheet" />
+        <script src="~/lib/jquery/jquery.js"></script>
+        <script src="~/lib/jquery-validate/jquery.validate.js"></script>
+        <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+        <script src="~/lib/bootstrap/js/bootstrap.js"></script>
+
+
+
+        <!--Design-->
+        <link href="~/AditionalDesign/css/new.css" rel="stylesheet" />
+
+        <!-- Bootstrap CSS File -->
+        <link href="~/Content/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Libraries CSS Files -->
+        <link href="~/AditionalDesign/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+        <link href="~/AditionalDesign/lib/animate/animate.min.css" rel="stylesheet">
+        <link href="~/AditionalDesign/lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+        <link href="~/AditionalDesign/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+        <link href="~/AditionalDesign/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+        <!-- Main Stylesheet File -->
+        <link href="~/css/new.css" rel="stylesheet" />
+        <link href="~/css/style.css" rel="stylesheet" />
+        <!--Design-->
+
+
+    </environment>
+    <environment exclude="Development">
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+              crossorigin="anonymous"
+              asp-fallback-href="~/lib/bootstrap/css/bootstrap.min.css"
+              asp-fallback-test-class="sr-only"
+              asp-fallback-test-property="position"
+              asp-fallback-test-value="absolute"
+              asp-supperss-fallback-integrity="true">
+
+        <!--Design-->
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
+        <!-- Bootstrap CSS File -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <!--Design-->
+    </environment>
+    <link href="~/css/new.css" rel="stylesheet" />
+    <link href="~/css/style.css" rel="stylesheet" />
+
+    <link href="~/css/site.css" rel="stylesheet" />
+
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+
+    <div class="container-fluid">
+        <header id="header" class="fixed-top">
+            <div class="container-fluid">
+
+                <div class="logo float-left">
+                    <a asp-controller="Home" asp-action="Index" class="scrollto"><img src="~/images/Additional/logo.png"  width="80" height="50" alt="" class="img-fluid"></a>
+                </div>
+
+
+                <nav id="bt_hover" class="main-nav  d-none d-lg-block" style="position:center;">
+                    <ul>
+                        <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+                        <li class="drop-down">
+                            <a>Our Company</a>
+                            <ul>
+                                <li><a href="#about">About Us</a></li>
+                                <li><a href="#portfolio">Raw Materials</a></li>
+                                <li><a href="#clients">Our Products</a></li>
+                                <li><a href="#team">Board of Management</a></li>
+                            </ul>
+                        </li>
+                        <li class="drop-down">
+                            <a >Sales</a>
+                            <ul>
+                                <li><a href="#">Customer Order</a></li>
+                                <li><a href="#">Sale Products</a></li>
+                                <li><a href="#">Products Return</a></li>
+                            </ul>
+                        </li>
+                        <li class="drop-down">
+                            <a >Purchase</a>
+                            <ul>
+                                <li><a href="#">Place Order</a></li>
+                                <li><a href="#">Purchase Materials</a></li>
+                            </ul>
+                        </li>
+                        <li class="drop-down">
+                            <a >Inventory</a>
+                            <ul>
+                                <li><a asp-controller="ProductInventorys" asp-action="Index">Product Inventory</a></li>
+                                <li><a asp-controller="MaterialInventorys" asp-action="Index">Material Inventory</a></li>
+                            </ul>
+                        </li>
+                        <li><a asp-controller="Productions" asp-action="Index">Production</a></li>
+                        <li class="drop-down">
+                            <a >Account Sectio</a>
+                            <ul>
+                                <li><a href="#">......</a></li>
+                                <li><a href="#">......</a></li>
+                            </ul>
+                        </li>
+                        <li class="drop-down">
+                            <a>Others</a>
+                            <ul>
+                                <li> <a asp-controller="Customers" asp-action="index">Custommers List</a></li>
+                                <li> <a asp-controller="Customers" asp-action="index">Custommers List</a></li>
+                                <li> <a asp-controller="Employees" asp-action="index">Employee List</a></li>
+                             
+                            </ul>
+                        </li>
+                        <li><a href="#contact">Contact Us</a></li>
+
+                        
+                        @if (signInManager.IsSignedIn(User))
+                        {
+                            <li class="nav-item">
+                                <form method="post" asp-action="Logout" asp-controller="Account">
+                                    <button type="submit" class="nav-link btn btn-link py-0" style="width:auto;">
+                                        Logout @User.Identity.Name
+                                    </button>
+                                </form>
+                            </li>
+                        }
+                        else
+                        {
+                            <li style=" color:#ffffff; background-color:#ff0000; "><a asp-controller="Account" asp-action="Register">Register</a></li>
+                            <li style="background-color:#0094ff; color:#ffffff;"><a asp-controller="Account" asp-action="Login">Login</a></li>
+                        }
+                    </ul>
+                </nav><!-- .main-nav -->
+
+
+            </div>
+        </header>
+
+        <div>
+            @RenderBody()
+        </div>
+
+        <footer id="footer">
+            <div class="footer-top">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-lg-4 col-md-6 footer-info">
+                            <h3>NORTH BENGAL</h3>
+                            <p>NORTH BENGAL Group is committed to complying with all applicable laws wherever we operate in order to meet our obligations to detect, prevent and eliminate, as well as reduce opportunities for bribery and corruption.</p>
+                        </div>
+
+                        <div class="col-lg-2 col-md-6 footer-links">
+                            <h4>Useful Links</h4>
+                            <ul>
+                                <li><a href="#">Home</a></li>
+                                <li><a href="#">About us</a></li>
+                                <li><a href="#">Our Products</a></li>
+                                <li><a href="#">Raw Materials</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 footer-contact">
+                            <h4>Contact Us</h4>
+                            <p>
+                                Nazrul islam Road, West Palsha <br>
+                                Charmatha, Bogra 5800<br>
+                                Bangladesh <br>
+                                <strong>Phone:</strong> 01717954232<br>
+                                <strong>Email:</strong> nazmussakib95@gmail.com<br>
+                            </p>
+
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="copyright">
+                    &copy; Copyright <strong>FARHAN ISHRAQ SHANTO</strong>. All Rights Reserved
+                </div>
+                <div class="credits">
+                    <!--
+                      All the links in the footer should remain intact.
+                      You can delete the links only if you purchased the pro version.
+                      Licensing information: https://bootstrapmade.com/license/
+                      Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=NewBiz
+                    -->
+                    Designed by <a href="https://www.facebook.com/farhan.shanto" style="color:yellow">Shanto</a>
+                </div>
+            </div>
+            @*<p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>*@
+        </footer>
+
+        @if (IsSectionDefined("Scripts"))
+        {
+            @RenderSection("Scripts", required: false)
+        }
+    </div>
+</body>
+</html>

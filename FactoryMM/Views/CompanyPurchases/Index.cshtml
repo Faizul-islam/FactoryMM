@@ -1,0 +1,39 @@
+﻿@model IEnumerable<CompanyPurchase>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>MatInvId</th>
+            <th>Quantity</th>
+            <th>Total</th>
+            <th>Paid</th>
+            <th>Quantity</th>
+            <th>Due</th>
+            <th>PurchaseDate</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var companyper in Model)
+        {
+            <tr>
+                <td>@companyper.PurchaseId</td>
+                <td>@companyper.MatInvId</td>
+                <td>@companyper.Quantity</td>
+                <td>@companyper.Quantity</td>
+                <td>@companyper.Total</td>
+                <td>@companyper.Paid</td>
+                <td>@companyper.Due</td>
+                <td>@companyper.PurchaseDate</td>
+                <td><a asp-controller="CompanyPurchases" asp-action="Edit" asp-route-id="@companyper.PurchaseId">Edit</a></td>
+                <td>Delete</td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+
