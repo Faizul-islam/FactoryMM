@@ -4,11 +4,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using FactoryMM.Data;
 using FactoryMM.Models.CompanyPurchaseMm;
+using FactoryMM.Models.CustomersOrderMm;
 using FactoryMM.Models.CustommerMm;
 using FactoryMM.Models.EmployeeMm;
 using FactoryMM.Models.InventoryMm.MaterialInventoryMm;
 using FactoryMM.Models.InventoryMm.ProductInventoryMm;
 using FactoryMM.Models.ProductionMM;
+using FactoryMM.Models.ReturnSels;
+using FactoryMM.Models.SalesMm;
 using FactoryMM.Models.SupplierMm;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
@@ -38,7 +41,7 @@ namespace FactoryMM
 
             services.AddDbContextPool<AppDbContext>(
                     options => options.UseSqlServer(_config.GetConnectionString("FactoryMMDBConnection")));
-
+            
 
             services.AddIdentity<ApplicationUser, IdentityRole>(option =>
             {
@@ -55,6 +58,9 @@ namespace FactoryMM
                 options.Filters.Add(new AuthorizeFilter(policy));
             }).AddXmlSerializerFormatters();
 
+            services.AddDistributedMemoryCache(); // Adds a default in-memory implementation of IDistributedCache
+            services.AddSession();
+
             //services.AddSingleton<IEmployeeRepository, MockEmployeeRepository>();
             services.AddScoped<IEmployeeRepository, SQLEmployeeRepository>();
             //services.AddSingleton<IProductInventoryRepository, MockProductInventoryRepository>();
@@ -69,6 +75,11 @@ namespace FactoryMM
             services.AddScoped<ICustomerRepository, SQLCustomerRepository>();
 
             services.AddScoped<ISupplierRepository, SQLSupplierRepository>();
+
+            services.AddScoped<ISalesRepository, SQLSalesRepository>();
+
+            services.AddScoped<IReturnSelseRepository, SQLReturnSelseRepository>();
+            services.AddScoped<ICustomerOrderRepository, SQLCustomerOrderRepository>();
 
         }
 
@@ -91,6 +102,7 @@ namespace FactoryMM
 
             app.UseAuthentication();
 
+            app.UseSession();
             //Conventional Routing
             app.UseMvc(routes =>
             {

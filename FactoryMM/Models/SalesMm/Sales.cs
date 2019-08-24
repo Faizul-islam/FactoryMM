@@ -12,7 +12,7 @@ namespace FactoryMM.Models.SalesMm
         [Key]
         public int SaleId { get; set; }
 
-        public int EmpId { get; set; }
+        public EmpSalesName? EmpId { get; set; }
 
         public int CustOrderId { get; set; }
 

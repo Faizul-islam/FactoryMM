@@ -1,0 +1,66 @@
+﻿
+@model Sales
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<form asp-controller="Sales" asp-action="Edit" method="post" class="mt-3">
+
+    <input hidden asp-for="SaleId" />
+
+    <div class="form-group row">
+        <label asp-for="EmpId" class="col-sm-2 col-form-label"></label>
+        <div class="col-sm-10">
+            <input asp-for="EmpId" class="form-control" placeholder="EmpId" />
+            <span asp-validation-for="EmpId" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label asp-for="CustOrderId" class="col-sm-2 col-form-label"></label>
+        <div class="col-sm-10">
+            <input asp-for="CustOrderId" class="form-control" placeholder="CustOrderId" />
+            <span asp-validation-for="CustOrderId" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label asp-for="Total" class="col-sm-2 col-form-label"></label>
+        <div class="col-sm-10">
+            <input asp-for="Total" class="form-control" placeholder="Total" />
+            <span asp-validation-for="Total" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label asp-for="Paid" class="col-sm-2 col-form-label"></label>
+        <div class="col-sm-10">
+            <input asp-for="Paid" class="form-control" placeholder="Paid" />
+            <span asp-validation-for="Paid" class="text-danger"></span>
+        </div>
+    </div>
+<div class="form-group row">
+        <label asp-for="Due" class="col-sm-2 col-form-label"></label>
+        <div class="col-sm-10">
+            <input asp-for="Due" class="form-control" placeholder="Due" />
+            <span asp-validation-for="Due" class="text-danger"></span>
+        </div>
+    </div>
+<div class="form-group row">
+        <label asp-for="DeliveryDate" class="col-sm-2 col-form-label"></label>
+        <div class="col-sm-10">
+            <input asp-for="DeliveryDate" class="form-control" placeholder="DeliveryDate" />
+            <span asp-validation-for="DeliveryDate" class="text-danger"></span>
+        </div>
+    </div>
+
+
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="form-group row">
+        <div class="col-sm-10">
+            <button type="submit" class="btn btn-primary">Create</button>
+            <a asp-controller="Sales" asp-action="Index" class="btn btn-primary">Cancel</a>
+        </div>
+    </div>
+
+
+</form>
+

@@ -4,11 +4,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace FactoryMM.Models.CustommerMm.CustomerOrderMm
+namespace FactoryMM.Models.CustomersOrderMm
 {
     public class SQLCustomerOrderRepository : ICustomerOrderRepository
     {
-
         private readonly AppDbContext context;
 
         public SQLCustomerOrderRepository(AppDbContext context)
@@ -24,13 +23,13 @@ namespace FactoryMM.Models.CustommerMm.CustomerOrderMm
 
         public CustomerOrder Delete(int id)
         {
-            CustomerOrder CustOrder = context.CustomerOrders.Find(id);
-            if (CustOrder != null)
+            CustomerOrder Order = context.CustomerOrders.Find(id);
+            if (Order != null)
             {
-                context.CustomerOrders.Remove(CustOrder);
+                context.CustomerOrders.Remove(Order);
                 context.SaveChanges();
             }
-            return CustOrder;
+            return Order;
         }
 
         public IEnumerable<CustomerOrder> GetAllCustomerOrder()
@@ -43,12 +42,12 @@ namespace FactoryMM.Models.CustommerMm.CustomerOrderMm
             return context.CustomerOrders.Find(Id);
         }
 
-        public CustomerOrder Update(CustomerOrder CustomerOrderChanges)
+        public CustomerOrder Update(CustomerOrder customerOrderChanges)
         {
-            var custmrOrder = context.CustomerOrders.Attach(CustomerOrderChanges);
-            custmrOrder.State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            var custmr = context.CustomerOrders.Attach(customerOrderChanges);
+            custmr.State = Microsoft.EntityFrameworkCore.EntityState.Modified;
             context.SaveChanges();
-            return CustomerOrderChanges;
+            return customerOrderChanges;
         }
     }
 }

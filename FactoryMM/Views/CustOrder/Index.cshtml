@@ -1,0 +1,41 @@
+﻿@model IEnumerable<CustomerOrder>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div>
+    <a asp-controller="CustOrder" asp-action="Create" type="button" class="btn btn-primary btn-lg btn-block m-2" style="width:300px;">Create New Employee </a>
+
+
+    <table class="table table-striped table-dark">
+        <thead>
+            <tr>
+                <th scope="col">CustOrderId</th>
+                <th scope="col">CustId</th>
+                <th scope="col">ProdInvId</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">OrderDate</th>
+                <th scope="col">DeliveryTakeDate</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var customer in Model)
+            {
+                <tr>
+                    <th scope="row">@customer.CustOrderId</th>
+                    <td>@customer.CustId</td>
+                    <td>@customer.ProdInvId</td>
+                    <td>@customer.Quantity</td>
+                    <td>@customer.OrderDate</td>
+                    <td>@customer.DeliveryTakeDate</td>
+                    <td><a asp-controller="CustOrder" asp-action="Edit" asp-route-id="@customer.CustOrderId">Edit</a></td>
+                    <td><a asp-controller="Sales" asp-action="Create" asp-route-id="@customer.CustOrderId">Sale</a></td>
+                    <td>Cansel</td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>

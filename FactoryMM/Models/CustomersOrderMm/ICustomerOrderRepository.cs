@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace FactoryMM.Models.CustommerMm.CustomerOrderMm
+namespace FactoryMM.Models.CustomersOrderMm
 {
-    interface ICustomerOrderRepository
+    public interface ICustomerOrderRepository
     {
         CustomerOrder GetCustomerOrder(int Id);
 
         IEnumerable<CustomerOrder> GetAllCustomerOrder();
 
-        CustomerOrder Add(CustomerOrder customer);
+        CustomerOrder Add(CustomerOrder customerOrder);
 
-        CustomerOrder Update(CustomerOrder CustomerOrderChanges);
+        CustomerOrder Update(CustomerOrder customerOrderChanges);
 
 
         CustomerOrder Delete(int id);

@@ -5,9 +5,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace FactoryMM.Models.SalesMm.SalesReturnMm
+namespace FactoryMM.Models.ReturnSels
 {
-    public class SalesReturn
+    public class ReturnSelse
     {
         [Key]
         public int SaleReturnId { get; set; }

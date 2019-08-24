@@ -27,6 +27,8 @@ namespace FactoryMM.ViewModels
 
         public BloodGroup? BloodGroup { get; set; }
 
+        public int Increament { get; set; }
+
         public IFormFile Photo { get; set; }
     }
 }

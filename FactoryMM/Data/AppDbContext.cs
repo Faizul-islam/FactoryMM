@@ -1,11 +1,13 @@
 ﻿using FactoryMM.Models.CompanyPurchaseMm;
+using FactoryMM.Models.CustomersOrderMm;
 using FactoryMM.Models.CustommerMm;
-using FactoryMM.Models.CustommerMm.CustomerOrderMm;
 using FactoryMM.Models.EmployeeMm;
 using FactoryMM.Models.EmployeeMm.EmployeeCategoryMm;
 using FactoryMM.Models.InventoryMm.MaterialInventoryMm;
 using FactoryMM.Models.InventoryMm.ProductInventoryMm;
 using FactoryMM.Models.ProductionMM;
+using FactoryMM.Models.ReturnSels;
+using FactoryMM.Models.SalesMm;
 using FactoryMM.Models.SupplierMm;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -35,8 +37,10 @@ namespace FactoryMM.Data
         public DbSet<Customer> Customers { get; set; }
         public DbSet<CustomerOrder> CustomerOrders { get; set; }
 
-        //public DbSet<Sales> Sales { get; set; }
-        //public DbSet<SalesReturn> SalesReturn { get; set; }
+        public DbSet<Sales> Saleses { get; set; }
+
+        public DbSet<ReturnSelse> ReturnSelses { get; set; }
+
         public DbSet<Supplier> Suppliers { get; set; }
 
 

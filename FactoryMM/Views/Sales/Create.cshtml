@@ -1,0 +1,188 @@
+﻿
+@model Sales
+@{
+    ViewData["Title"] = "Create";
+}
+
+<style>
+    .width30 {
+        width: 30%;
+    }
+
+    .width70 {
+        width: 70%;
+    }
+
+    .floatL {
+        float: left;
+    }
+
+    .width50 {
+        width: 50%;
+    }
+
+    .floatR {
+        float: right;
+    }
+
+    .btn {
+        width: 100%;
+        border-radius: 0px;
+    }
+
+    .width100 {
+        width: 100%;
+    }
+
+    .row {
+        margin-left: -20px;
+        margin-right: -20px;
+    }
+
+    .boxStyle {
+        padding: 20px;
+        border-radius: 25px;
+        border-top: 6px solid #dc3545;
+        border-bottom: 6px solid #28a745;
+    }
+</style>
+<body class="bg-dark">
+    <header class="bg-dark" style="height: 60px; padding: 5px;">
+        <h3 class="text-light" style="text-align: center;">Create Customer Order</h3>
+    </header>
+    <div class="container bg-dark">
+        <div class="row">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-2"></div>
+            <div class="col-sm-6 bg-light boxStyle">
+                <form asp-controller="Sales" asp-action="Create" method="post" class="mt-3">
+                    <div class="form-group">
+                        <div class="width30 floatL"><label>Employee Name</label></div>
+                        <div class="width70 floatR">
+                            <select asp-for="EmpId" class="custom-select mr-sm-2"
+                                    asp-items="Html.GetEnumSelectList<EmpSalesName>()">
+                                <option value="">Please Select</option>
+                            </select>
+                            @*<input asp-for="EmpId" id="EmpId" class="width100 form-control" name="firstname" type="text" value="" size="20">
+            <span asp-validation-for="EmpId" class="text-danger"></span>*@
+
+                        </div><br><br>
+                        <div class="form-group">
+                            <div class="width30 floatL"><label>CustOrderId Name</label></div>
+                            <div class="width70 floatR">
+                                <input asp-for="CustOrderId" class="width100 form-control" name="ProdInvId" type="text" value="@ViewBag.dum" readonly="@(true)" size="20">
+                                <span asp-validation-for="CustOrderId" class="text-danger"></span>
+                            </div>
+                        </div><br>
+
+                        <div class="form-group">
+                            <div class="width30 floatL"><label>Unit Price</label></div>
+                            <div class="width70 floatR">
+                                <input asp-for="Due" class="width100 form-control" name="Due" type="text" readonly="@true" value="@ViewBag.unitPrice" size="20">
+                                <span asp-validation-for="Due" class="text-danger"></span>
+                            </div>
+                        </div><br>
+
+                        <div class="form-group">
+                            <div class="width30 floatL"><label>Quantity</label></div>
+                            <div class="width70 floatR">
+                                <input asp-for="Due" class="width100 form-control" name="Due" readonly="@true" type="text" value="@ViewBag.qty" size="20">
+                                <span asp-validation-for="Due" class="text-danger"></span>
+                            </div>
+                        </div><br>
+
+
+                        <div class="form-group">
+                            <div class="width30 floatL"><label>Total</label></div>
+                            <div class="width70 floatR">
+                                <input asp-for="Total" class="width100 form-control" name="Total" src="" type="text" readonly="@true" value="@ViewBag.Total" size="20">
+                                <span asp-validation-for="Total" class="text-danger"></span>
+                            </div>
+                        </div><br>
+                        
+
+                        <div class="form-group">
+                            <div class="width30 floatL"><label>DeliveryTakeDate</label></div>
+                            <div class="width70 floatR">
+                                <input asp-for="DeliveryDate" class="width100 form-control" name="address" type="text" value="" size="20">
+                                <span asp-validation-for="DeliveryDate" class="text-danger"></span>
+                            </div>
+                        </div><br><br><br>
+
+                        <div asp-validation-summary="All" class="text-danger"></div>
+                        <div style="padding-left:80px;" class="form-group row ">
+                            <div class="btn-group btn-group-justified col-sm-10">
+                                <button type="submit" class="btn btn-primary">Create</button>
+                                <a asp-controller="Sales" asp-action="Index" class="btn btn-danger">Cancel</a>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+@*<form asp-controller="Sales" asp-action="Create" method="post" class="mt-3">
+        <div class="form-group row">
+            <label asp-for="EmpId" class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-10">
+                <input asp-for="EmpId" class="form-control" placeholder="EmpId" />
+                <span asp-validation-for="EmpId" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="CustOrderId" class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-10">
+                <input asp-for="CustOrderId" class="form-control" placeholder="CustOrderId" />
+                <span asp-validation-for="CustOrderId" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="Total" class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-10">
+                <input asp-for="Total" class="form-control" placeholder="Total" />
+                <span asp-validation-for="Total" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="Paid" class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-10">
+                <input asp-for="Paid" class="form-control" placeholder="Paid" />
+                <span asp-validation-for="Paid" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="Due" class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-10">
+                <input asp-for="Due" class="form-control" placeholder="Due" />
+                <span asp-validation-for="Due" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="DeliveryDate" class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-10">
+                <input asp-for="DeliveryDate" class="form-control" placeholder="DeliveryDate" />
+                <span asp-validation-for="DeliveryDate" class="text-danger"></span>
+            </div>
+        </div>
+
+
+
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <div class="form-group row">
+            <div class="col-sm-10">
+                <button type="submit" class="btn btn-primary">Create</button>
+                <a asp-controller="Sales" asp-action="Index" class="btn btn-primary">Cancel</a>
+            </div>
+        </div>
+
+
+
+    </form>*@
+

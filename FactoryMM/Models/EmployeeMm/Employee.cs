@@ -27,6 +27,8 @@ namespace FactoryMM.Models.EmployeeMm
 
         public BloodGroup? BloodGroup { get; set; }
 
+        public int Increament { get; set; }
+
         public string PhotoPath { get; set; }
     }
 }

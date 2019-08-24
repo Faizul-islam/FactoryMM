@@ -1,0 +1,105 @@
+﻿
+@*@model CustomerOrder
+@{
+    ViewData["Title"] = "Create";
+}
+
+<style>
+    .width30 {
+        width: 30%;
+    }
+
+    .width70 {
+        width: 70%;
+    }
+
+    .floatL {
+        float: left;
+    }
+
+    .width50 {
+        width: 50%;
+    }
+
+    .floatR {
+        float: right;
+    }
+
+    .btn {
+        width: 100%;
+        border-radius: 0px;
+    }
+
+    .width100 {
+        width: 100%;
+    }
+
+    .row {
+        margin-left: -20px;
+        margin-right: -20px;
+    }
+
+    .boxStyle {
+        padding: 20px;
+        border-radius: 25px;
+        border-top: 6px solid #dc3545;
+        border-bottom: 6px solid #28a745;
+    }
+</style>
+<body class="bg-dark">
+    <header class="bg-dark" style="height: 60px; padding: 5px;">
+        <h3 class="text-light" style="text-align: center;">Create Customer Order</h3>
+    </header>
+    <div class="container bg-dark">
+        <div class="row">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-2"></div>
+            <div class="col-sm-6 bg-light boxStyle">
+                <form asp-controller="ProductInventorys" asp-action="Create" method="post" class="mt-3">
+                    <div class="form-group">
+                        <div class="width30 floatL"><label>ProdInvName Name</label></div>
+                        <div class="width70 floatR">
+                            <input asp-for="ProdInvName" id="CustId" class="width100 form-control" name="firstname" type="text" value="" size="20">
+                            <span asp-validation-for="ProdInvName" class="text-danger"></span>
+                        </div><br><br>
+                        <div class="form-group">
+                            <div class="width30 floatL"><label>Description Name</label></div>
+                            <div class="width70 floatR">
+                                <input asp-for="Description" class="width100 form-control" name="ProdInvId" type="text" value="" size="20">
+                                <span asp-validation-for="Description" class="text-danger"></span>
+                            </div>
+                        </div><br><br>
+                        <div class="form-group">
+                            <div class="width30 floatL"><label>Quantity</label></div>
+                            <div class="width70 floatR">
+                                <input asp-for="Quantity" class="width100 form-control" name="Quantity" src="" type="text" value="" size="20">
+                                <span asp-validation-for="Quantity" class="text-danger"></span>
+                            </div>
+                        </div><br><br>
+                        <div class="form-group">
+                            <div class="width30 floatL"><label>UnitPrice</label></div>
+                            <div class="width70 floatR">
+                                <input asp-for="UnitPrice" class="width100 form-control" name="OrderDate" type="text" value="" size="20">
+                                <span asp-validation-for="UnitPrice" class="text-danger"></span>
+                            </div>
+                        </div><br><br><br>
+
+                        <div asp-validation-summary="All" class="text-danger"></div>
+                        <div style="padding-left:80px;" class="form-group row ">
+                            <div class="btn-group btn-group-justified col-sm-10">
+                                <button type="submit" class="btn btn-primary">Create</button>
+                                <a asp-controller="ProductInventorys" asp-action="Index" class="btn btn-danger">Cancel</a>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+</body>*@
+

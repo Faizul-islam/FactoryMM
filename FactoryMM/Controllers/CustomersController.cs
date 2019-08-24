@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using FactoryMM.Data;
 using FactoryMM.Models.CustommerMm;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,11 +12,15 @@ namespace FactoryMM.Controllers
 {
     public class CustomersController : Controller
     {
+        
         private ICustomerRepository _customerRepository;
+        private AppDbContext _contex;
 
-        public CustomersController(ICustomerRepository customerRepository)
+        public CustomersController(ICustomerRepository customerRepository, AppDbContext contex)
         {
             _customerRepository = customerRepository;
+
+            _contex = contex;
         }
 
         public IActionResult Index()
@@ -27,6 +32,7 @@ namespace FactoryMM.Controllers
         [HttpGet]
         public IActionResult Create()
         {
+            
             return View();
         }
 

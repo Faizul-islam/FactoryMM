@@ -95,6 +95,7 @@ namespace FactoryMM.Controllers
                     EmpCatId = model.EmpCatId,
                     JoiningDate = model.JoiningDate,
                     BloodGroup = model.BloodGroup,
+                    Increament = model.Increament,
                     
                     PhotoPath = uniqueFileName
                 };

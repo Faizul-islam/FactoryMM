@@ -12,7 +12,17 @@
                 <tr>
                     <th scope="col">ID</th>
                     <th scope="col">ProdInvId</th>
-                    <th scope="col">MatInvId</th>
+                    <th scope="col">ProdQuantity</th>
+                    <th scope="col">HDPE</th>
+                    <th scope="col">LDPE</th>
+                    <th scope="col">PP</th>
+                    <th scope="col">T2OR</th>
+                    <th scope="col">T2OB</th>
+                    <th scope="col">T2OY</th>
+                    <th scope="col">Thinner</th>
+                    <th scope="col">Wastage</th>
+                    <th scope="col">ProdHour</th>
+                    <th scope="col">Date</th>
 
                 </tr>
             </thead>
@@ -22,7 +32,17 @@
                     <tr>
                         <th scope="row">@production.ProductionId</th>
                         <td>@production.ProdInvId</td>
-                        <td>@production.MatInvId</td>
+                        <td>@production.ProdQuantity</td>
+                        <td>@production.HDPE</td>
+                        <td>@production.LDPE</td>
+                        <td>@production.PP</td>
+                        <td>@production.T2OR</td>
+                        <td>@production.T2OB</td>
+                        <td>@production.T2OY</td>
+                        <td>@production.Thinner</td>
+                        <td>@production.Wastage</td>
+                        <td>@production.ProdHour</td>
+                        <td>@production.Date</td>
 
                         <td><a asp-controller="Productions" asp-action="Edit" asp-route-id="@production.ProductionId">Edit</a></td>
                         <td>Delete</td>
